@@ -1,0 +1,7 @@
+1) Select a duration
+2) analyse time spent in each category during that duration
+3)calculate efficiency during that duration.
+4) Calculate most productive hours
+5) Top reasons for failing(use nltk if required)
+
+
