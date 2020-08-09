@@ -4,6 +4,7 @@ import numpy as np
 import datetime
 import math
 
+
 df=pd.read_excel(r'Schedule.xlsx')
 print("The first 10 rows are \n")
 for i in range(10):
@@ -17,7 +18,7 @@ date_string=input("Enter starting date time(inclusive) as %Y-%m-%d %H:%M:%S")
 date1 = datetime.datetime.strptime(date_string, "%Y-%m-%d %H:%M:%S")
 
 date_string=input("Enter ending date time(exclusive) as %Y-%m-%d %H:%M:%S")
-#date_string = "2020-07-15 00:00:00"
+#date_string = "2020-07-17 00:00:00"
 
 date2 = datetime.datetime.strptime(date_string, "%Y-%m-%d %H:%M:%S")
 dur=0;
@@ -32,12 +33,13 @@ while(date2!=df.values[i][0]):
       t1_mins=t1.hour*60+t1.minute
       t2_mins=t2.hour*60+t2.minute
       dur=dur+t1_mins-t2_mins
-  print(type(df.values[i-1][0]))
-  if(type(df.values[i-1][0])=='<class \'pandas._libs.tslibs.timestamps.Timestamp\'>'):
-    no_of_days=no_of_days+1;'<class \'pandas._libs.tslibs.timestamps.Timestamp'
 
-  #if(df.values[i-1][0]!= NaT):
-  #if(pd.isnull(np.datetime64(df.values[i-1][0])))
+  if(pd.isnull(df.values[i-1][0])):             #pd.isnull returns true for null and nat
+    print("NaT")
+  else:
+      no_of_days=no_of_days+1;
+print("no of days are: ",no_of_days)
+  
 
 study_hrs=math.floor(dur/60);study_mins=dur%60;
 print("Total duration of studies during chosen period is ",study_hrs, "hrs and ",study_mins," mins.")
