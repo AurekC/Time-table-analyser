@@ -1,0 +1,33 @@
+The first 10 rows are 
+[Timestamp('2020-07-15 00:00:00') datetime.time(8, 0) datetime.time(8, 15)
+ 'Non useful work' 'Helping mom ' 'N.A.' 'N' 'Y' nan]
+[NaT datetime.time(8, 15) datetime.time(8, 30) 'Entertainment'
+ 'Youtube(gaurav taneja old vlog)' 'N.A.' 'N' 'N' nan]
+[NaT datetime.time(8, 30) datetime.time(9, 0) 'Non useful work' 'Washroom'
+ 'N.A.' 'N' 'N' nan]
+[NaT datetime.time(9, 0) datetime.time(9, 35) 'Studies' 'Toefl' 5 'Y' nan
+ "Read intro chapter of toefl ets book( didn't complete)"]
+[NaT datetime.time(9, 35) datetime.time(10, 0) 'Non useful work' 'Eating'
+ 'N.A.' 'Y' nan nan]
+[NaT datetime.time(10, 0) datetime.time(10, 30) 'Entertainment'
+ 'Pubg youtube videos' 'N.A.' 'N' nan nan]
+[NaT datetime.time(10, 30) datetime.time(11, 15) 'Non useful work'
+ 'Flipkart order and mashi called for phone order' 'N.A.' 'N' 'N' nan]
+[NaT datetime.time(11, 15) datetime.time(11, 30) 'Entertainment'
+ 'Pubg youtube videos' 'N.A.' 'N' 'N' nan]
+[NaT datetime.time(11, 30) datetime.time(12, 0) 'Non useful work'
+ 'gargel and schedule making' 'N.A.' 'N' 'Y' nan]
+[NaT datetime.time(12, 0) datetime.time(12, 15) 'Non useful work' 'Shower'
+ 'N.A.' 'Y(delayed)' 'y' nan]
+The dates are0     2020-07-15
+1            NaT
+2            NaT
+3            NaT
+4            NaT
+         ...    
+167   2020-07-25
+168          NaT
+169          NaT
+170          NaT
+171          NaT
+Name: Date, Length: 172, dtype: datetime64[ns]
