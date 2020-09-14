@@ -1,0 +1,18 @@
+The The starting date is 2020-07-15 00:00:00 and the ending date is 2020-09-13 00:00:00The duration is neagtive for row number: 12
+The duration is neagtive for row number: 16
+The duration is neagtive for row number: 22
+The duration is neagtive for row number: 37
+The duration is neagtive for row number: 42
+The duration is neagtive for row number: 46
+The duration is neagtive for row number: 59
+error at 126
+The duration is neagtive for row number: 173
+The duration is neagtive for row number: 260
+The duration is neagtive for row number: 696
+The duration is neagtive for row number: 729
+The duration is neagtive for row number: 751
+The duration is neagtive for row number: 1151
+The duration is neagtive for row number: 1245
+The duration is neagtive for row number: 1266
+The duration is neagtive for row number: 1293
+The duration is neagtive for row number: 1314
