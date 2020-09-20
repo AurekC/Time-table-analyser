@@ -41,8 +41,12 @@ def cal_avg(category,no_of_days):
 #end of function
 
 f_log=open("log.txt","w")
-df=pd.read_excel(r'Schedule.xlsx')
 
+userchoice=int(input("Enter 1 for reading Schedule.xlsx \nEnter 2 for reading Corrected_schedule.xlsx"))
+if(userchoice==1):
+    df=pd.read_excel(r'Schedule.xlsx')
+else:
+    df=pd.read_excel(r'Corrected_schedule.xlsx')
 Log_Lines=["The first 10 rows are \n"]
 f_log.writelines(Log_Lines)
 for i in range(10):

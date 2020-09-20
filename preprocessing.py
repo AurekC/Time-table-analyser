@@ -32,15 +32,21 @@ while(date2!=df.values[i][0]):
     t2_mins=t2.hour*60+t2.minute
     dur=t1_mins-t2_mins
     if(dur<0):
-        if(df.values[i][4]!="pubg"):
-           print("The duration is neagtive for row number: ",str(i+1))
+        #if(df.values[i][4]!="pubg"):
+           #print("The duration is neagtive for row number: ",str(i+1))
            text=["The duration is neagtive for row number: ",str(i+1),"\n"]
            f_log.writelines(text)
-        else:
-            zz=0; #do nothing as of now. To be edited later
+           set_date=datetime.date(1,1,1)
+           ampm_var=datetime.time(12,0,0)
+           datetime1 = datetime.datetime.combine(set_date, t1)
+           datetime2 = datetime.datetime.combine(set_date, ampm_var)
+           time_elapsed = datetime1 - datetime2
+           df.values[i][2]=time_elapsed;
+        #else:
+            #zz=0; #do nothing as of now. To be edited later
    except:
         print("error at ",str(i+1))
         text=["error at ",str(i+1),"\n"]
         f_log.writelines(text)
-  else:
-      no_of_days=no_of_days+1;
+ 
+df.to_excel(r'Corrected_schedule.xlsx', index= False)
