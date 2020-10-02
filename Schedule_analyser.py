@@ -9,6 +9,7 @@ import math
 def cal_avg(category,no_of_days):
     x=[];y=[];sum=0;                        # sum calculates y value for plotting for every x
     dur=0;
+    eff=0;count_studies_not=0; x1=[];y1=[];sum1=0;  #variable to calculate efficiency and count for counting number of times studies
     i=0;temp=i;
     while(date1!=df.values[i][0]):
       i=i+1;temp=i;
@@ -20,12 +21,31 @@ def cal_avg(category,no_of_days):
           x.append(str(df.values[i-1][0]))
           y.append(sum)
           sum=0;
-      if(df.values[i][3].lower()==category.lower()):
+          if(category.lower()=="studies" or category.lower()=="studies work"):
+           sum1=0;
+           x1.append(str(df.values[i-1][0]))
+           y1.append(sum1)
+
+      if(df.values[i][3].lower()==category.lower() or df.values[i][3].lower()=="college class "+" "+category.lower() or df.values[i][3].lower()=="college lab "+" "+category.lower()):
           t1=df.values[i][2];t2=df.values[i][1]
           t1_mins=t1.hour*60+t1.minute
           t2_mins=t2.hour*60+t2.minute
           dur=dur+t1_mins-t2_mins
           sum+=t1_mins-t2_mins
+      if(category.lower()=="studies" or category.lower()=="studies work"):
+          #calculating efficiency avg
+          if(pd.isnull(df.values[i-1][5]) or df.values[i-1][5]=="N.A."):             #pd.isnull returns true for null and nat
+            zz=0;#print("NaT")          #do nothing statement
+          else:
+            try:
+                eff+=df.values[i-1][5]
+                count_studies_not+=1
+                sum1+=eff;
+            except:
+                print("error reading efficiency value at ",i,"th row")
+                print("Ignored efficiency value of this row")
+
+
 
 
 
@@ -38,6 +58,16 @@ def cal_avg(category,no_of_days):
     plt.plot(x,y, label='linear')
     plt.savefig(category+".pdf")
     plt.show()
+
+    if(category.lower()=="studies" or category.lower()=="studies work"):
+        avg_eff=0;
+        avg_eff=eff/count_studies_not
+        print("The average efficeincy for ",category," is ", avg_eff)
+        plt.plot(x1,y1, label='linear')
+        plt.savefig(category+" efficiency"+".pdf")
+        plt.show()
+
+
 #end of function
 
 f_log=open("log.txt","w")
