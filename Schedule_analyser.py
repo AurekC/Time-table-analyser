@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 import datetime
 import math
-
+f_log=open("log.txt","w")
 
 def cal_avg(category,no_of_days):
     x=[];y=[];sum=0;                        # sum calculates y value for plotting for every x
@@ -36,7 +36,7 @@ def cal_avg(category,no_of_days):
           #calculating efficiency avg
           if(pd.isnull(df.values[i-1][5]) or df.values[i-1][5]=="N.A."):             #pd.isnull returns true for null and nat
             zz=0;#print("NaT")          #do nothing statement
-          else:
+          elif(df.values[i-1][3].lower()==category.lower()):
             try:
                 eff+=df.values[i-1][5]
                 count_studies_not+=1
@@ -44,6 +44,8 @@ def cal_avg(category,no_of_days):
             except:
                 print("error reading efficiency value at ",i,"th row")
                 print("Ignored efficiency value of this row")
+                Log_Lines=["error reading efficiency value at ",str(i),"th row","\nIgnored efficiency value of this row"]
+                f_log.writelines(Log_Lines)
 
 
 
@@ -70,7 +72,7 @@ def cal_avg(category,no_of_days):
 
 #end of function
 
-f_log=open("log.txt","w")
+
 
 userchoice=int(input("Enter 1 for reading Schedule.xlsx \nEnter 2 for reading Corrected_schedule.xlsx"))
 if(userchoice==1):
